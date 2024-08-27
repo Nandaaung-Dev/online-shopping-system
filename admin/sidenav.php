@@ -13,7 +13,7 @@
   <!-- Material Kit CSS -->
   <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
   <link href="assets/css/black-dashboard.css" rel="stylesheet" />
-  
+
 </head>
 
 <body class="dark-edition">
@@ -26,7 +26,7 @@
   -->
       <div class="logo">
         <a href="" class="simple-text logo-normal">
-          PuneethReddy
+          KaungSatt
         </a>
       </div>
       <div class="sidebar-wrapper ps-container ps-theme-default" data-ps-id="3a8db1f4-24d8-4dbf-85c9-4f5215c1b29a">
@@ -48,9 +48,9 @@
               <i class="material-icons">list</i>
               <p>Product List</p>
             </a>
-            
+
           </li>
-          
+
           <li class="nav-item ">
             <a class="nav-link" href="orders.php">
               <i class="material-icons">library_books</i>
@@ -84,5 +84,3 @@
         </ul>
       </div>
     </div>
-    
-    
