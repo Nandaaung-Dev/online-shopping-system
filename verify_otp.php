@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['otp'])) {
             const verifyOtp = document.getElementById('verify_otp');
 
             // Initialize countdown
-            let countdown = 2; // 60 seconds
+            let countdown = 120; // 60 seconds
             const timerInterval = setInterval(() => {
                 countdown--;
                 timerDisplay.textContent = ` ${countdown} secs`;
