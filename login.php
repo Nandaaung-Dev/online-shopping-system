@@ -2,9 +2,17 @@
 include "db.php";
 session_start();
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// Load Composer's autoloader
+require 'vendor/autoload.php';
+
 if (isset($_POST["email"]) && isset($_POST["password"])) {
 	$email = mysqli_real_escape_string($con, $_POST["email"]);
 	$password = mysqli_real_escape_string($con, $_POST["password"]); // Prevent SQL injection
+
+	// Check user credentials
 	$sql_one = "SELECT * FROM user_info WHERE email = '$email' AND password = '$password'";
 	$run_query = mysqli_query($con, $sql_one);
 	$count = mysqli_num_rows($run_query);
@@ -35,6 +43,33 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 		$otp_sql = "INSERT INTO user_otp (user_id, otp) VALUES ('$_SESSION[uid]', '$otp')";
 		mysqli_query($con, $otp_sql);
 
+		// Send OTP via email
+		$mail = new PHPMailer(true);
+
+		try {
+			// Server settings
+			$mail->isSMTP();
+			$mail->Host = 'sandbox.smtp.mailtrap.io'; // Use your SMTP server
+			$mail->SMTPAuth = true;
+			$mail->Port = 2525;
+			$mail->Username = '9578f11c4b2268'; // Your SMTP username
+			$mail->Password = 'a15fefc5be3d75'; // Your SMTP password
+
+			// Recipients
+			$mail->setFrom('onelinshop@gmail.com', 'Onelin Shop');
+			$mail->addAddress($email); // Send to the user's email
+
+			// Content
+			$mail->isHTML(true); // Set email format to HTML
+			$mail->Subject = 'Your OTP Code';
+			$mail->Body    = "Hello {$_SESSION['name']},<br><br>Your OTP code is <b>$otp</b>.<br><br>Thank you.";
+
+			$mail->send();
+			echo 'OTP has been sent to your email.';
+		} catch (Exception $e) {
+			echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+		}
+
 		// Handle product list from the cookie if it exists
 		if (isset($_COOKIE["product_list"])) {
 			$p_list = stripcslashes($_COOKIE["product_list"]);
@@ -62,13 +97,13 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 			exit();
 		}
 
-		// If login is successful, redirect to OTP verification page
+		// Redirect to OTP verification page
 		echo "login_success";
 		echo "<script> location.href='verify_otp.php'; </script>";
 		exit();
 	} else {
 		// Check if the login attempt is for an admin
-		$password_md5 = md5($password); // Apply MD5 hashing
+		$password_md5 = md5($password); // Apply MD5 hashing (use password_hash() and password_verify() for better security)
 		$sql_one = "SELECT * FROM admin_info WHERE admin_email = '$email' AND admin_password = '$password_md5'";
 		$run_query = mysqli_query($con, $sql_one);
 		$count = mysqli_num_rows($run_query);
@@ -82,7 +117,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 			echo "<script> location.href='admin/addproduct.php'; </script>";
 			exit();
 		} else {
-			echo "<span style='color:red;'>Please register before login..!</span>";
+			echo "<span style='color:red;'>Invalid credentials or please register before logging in!</span>";
 			exit();
 		}
 	}
