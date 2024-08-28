@@ -33,7 +33,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin_info`
+-- Table structure for table `admhttps://chatgpt.com/c/cd9cec4b-397f-4943-86ed-fcac2d1b4cfein_info`
 --
 
 CREATE TABLE `admin_info` (
@@ -73,6 +73,12 @@ INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
 (5, 'LG'),
 (6, 'Cloth Brand');
 
+
+
+CREATE TABLE `user_otp` (
+  `user_id` int(100)  NULL,
+  `otp`  int(100)  NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 -- --------------------------------------------------------
 
 --
@@ -429,6 +435,9 @@ ALTER TABLE `admin_info`
 ALTER TABLE `brands`
   ADD PRIMARY KEY (`brand_id`);
 
+
+ALTER TABLE `user_otp`
+  ADD PRIMARY KEY (`user_id`);
 --
 -- Indexes for table `cart`
 --
