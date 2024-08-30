@@ -151,9 +151,12 @@ session_start();
 					<li><a href="#"><i class="fa fa-inr"></i> MMK</a></li>
 					<li><?php
 						include "db.php";
-						$result = mysqli_query($con, "SELECT otp FROM user_otp WHERE user_id = '$_SESSION[uid]'");
-						$row = mysqli_fetch_assoc($result);
-						$stored_otp = $row['otp'];
+						if (isset($_SESSION['uid'])) {
+
+							$result = mysqli_query($con, "SELECT otp FROM user_otp WHERE user_id = '$_SESSION[uid]'");
+							$row = mysqli_fetch_assoc($result);
+							$stored_otp = $row['otp'];
+						}
 						if (isset($_SESSION["uid"]) && ($_SESSION["stored_otp"]) == $stored_otp) {
 							$sql = "SELECT first_name FROM user_info WHERE user_id='$_SESSION[uid]'";
 							$query = mysqli_query($con, $sql);

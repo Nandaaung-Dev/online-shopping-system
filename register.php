@@ -132,8 +132,9 @@ if (isset($_POST["f_name"])) {
 						$mail->Host = 'sandbox.smtp.mailtrap.io';
 						$mail->SMTPAuth = true;
 						$mail->Port = 2525;
-						$mail->Username = '9578f11c4b2268';
-						$mail->Password = 'a15fefc5be3d75';
+						$mail->Username = 'ea3f93866695ef';
+						$mail->Password = '42398913e0e145';
+
 
 						// Recipients
 						$mail->setFrom('onelinshop@gmail.com', 'Onelin Shop');
@@ -145,7 +146,7 @@ if (isset($_POST["f_name"])) {
 						$mail->Body    = "Hello $f_name $l_name,<br><br>Your OTP code is <b>$otp</b>.<br><br>Thank you.";
 
 						$mail->send();
-						echo 'OTP has been sent to your email.';
+						// echo 'OTP has been sent to your email.';
 					} catch (Exception $e) {
 						echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 					}

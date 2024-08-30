@@ -52,8 +52,8 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 			$mail->Host = 'sandbox.smtp.mailtrap.io'; // Use your SMTP server
 			$mail->SMTPAuth = true;
 			$mail->Port = 2525;
-			$mail->Username = '9578f11c4b2268'; // Your SMTP username
-			$mail->Password = 'a15fefc5be3d75'; // Your SMTP password
+			$mail->Username = 'ea3f93866695ef';
+			$mail->Password = '42398913e0e145';
 
 			// Recipients
 			$mail->setFrom('onelinshop@gmail.com', 'Onelin Shop');
@@ -65,7 +65,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 			$mail->Body    = "Hello {$_SESSION['name']},<br><br>Your OTP code is <b>$otp</b>.<br><br>Thank you.";
 
 			$mail->send();
-			echo 'OTP has been sent to your email.';
+			// echo 'OTP has been sent to your email.';
 		} catch (Exception $e) {
 			echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 		}
@@ -98,7 +98,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 		}
 
 		// Redirect to OTP verification page
-		echo "login_success";
+		// echo "login_success";
 		echo "<script> location.href='verify_otp.php'; </script>";
 		exit();
 	} else {
