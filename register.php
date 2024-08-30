@@ -104,7 +104,7 @@ if (isset($_POST["f_name"])) {
 			// Insert user information into the database
 			$sql = "INSERT INTO `user_info` 
                     (`user_id`, `first_name`, `last_name`, `email`, `password`, `mobile`, `address1`, `address2`) 
-                    VALUES (NULL, '$f_name', '$l_name', '$email', '$hashed_password', '$mobile', '$address1', '$address2')";
+                    VALUES (NULL, '$f_name', '$l_name', '$email', '$password', '$mobile', '$address1', '$address2')";
 			$run_query = mysqli_query($con, $sql);
 
 			if ($run_query) {
