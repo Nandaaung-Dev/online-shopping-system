@@ -137,7 +137,7 @@ include "header.php";
                         </div>
 
                         <label for="cname">Phone Number</label>
-                        <input type="text" id="cname" name="cardname" class="form-control" pattern="^[0-9]+$" required>
+                        <input type="text" id="cname" name="phoneNumber" class="form-control" required>
                         
                         <div class="form-group" id="card-number-field">
                             <label for="cardNumber">Transaction Number</label>

@@ -211,7 +211,7 @@ CREATE TABLE `orders_info` (
   `city` varchar(255) NOT NULL,
   `state` varchar(255) NOT NULL,
   `zip` int(10) NOT NULL,
-  `cardname` varchar(255) NOT NULL,
+  `phonenumber` varchar(255) NOT NULL,
   `cardnumber` varchar(20) NOT NULL,
   `expdate` varchar(255) NOT NULL,
   `prod_count` int(15) DEFAULT NULL,
@@ -223,7 +223,7 @@ CREATE TABLE `orders_info` (
 -- Dumping data for table `orders_info`
 --
 
-INSERT INTO `orders_info` (`order_id`, `user_id`, `f_name`, `email`, `address`, `city`, `state`, `zip`, `cardname`, `cardnumber`, `expdate`, `prod_count`, `total_amt`, `cvv`) VALUES
+INSERT INTO `orders_info` (`order_id`, `user_id`, `f_name`, `email`, `address`, `city`, `state`, `zip`, `phonenumber`, `cardnumber`, `expdate`, `prod_count`, `total_amt`, `cvv`) VALUES
 (1, 12, 'Puneeth', 'kaungsatt951@gmail.com', 'Bangalore, Kumbalagodu, Karnataka', 'Bangalore', 'Karnataka', 560074, 'pokjhgfcxc', '4321 2345 6788 7654', '12/90', 3, 77000, 1234);
 
 -- --------------------------------------------------------
