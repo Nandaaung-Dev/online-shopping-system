@@ -62,7 +62,7 @@ session_start();
 			/* fallback for old browsers */
 			background: -webkit-linear-gradient(to right, #061161, #780206);
 			/* Chrome 10-25, Safari 5.1-6 */
-			background: linear-gradient(to right, #061161, #780206);
+			background: linear-gradient(to right, #F9D423, #F9D423);
 			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
@@ -75,7 +75,7 @@ session_start();
 			/* fallback for old browsers */
 			background: -webkit-linear-gradient(to right, #190A05, #870000);
 			/* Chrome 10-25, Safari 5.1-6 */
-			background: linear-gradient(to right, #190A05, #870000);
+			background: linear-gradient(to right, #FF8225, #FF8225);
 			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
@@ -202,8 +202,8 @@ session_start();
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a href="#" class="logo">
-								<font style="font-style:normal; font-size: 33px;color: aliceblue;font-family: serif">
+							<a href="index.php" class="logo">
+								<font style="font-style:normal; font-size: 33px;color: #000000;font-family: serif">
 									MegaShop
 								</font>
 

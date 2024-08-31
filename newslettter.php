@@ -1,11 +1,6 @@
-
-
-        
-
-        <div id="newsletter" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
+<div id="newsletter" class="section">
+	<!-- container -->
+	<!-- <div class="container">
 				<div class="row">
 					<div class="col-md-12">
 					
@@ -16,13 +11,11 @@
 								<button class="newsletter-btn" value="Sign Up" name="signup_button" type="submit"><i class="fa fa-envelope"></i> Subscribe</button>
 							</form>
 							<div class="" id="offer_msg">
-                                <!--Alert from signup form-->
                             </div>
 					
 						</div>
 					</div>
 				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
+			</div> -->
+	<!-- /container -->
+</div>

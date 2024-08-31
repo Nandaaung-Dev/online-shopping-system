@@ -12,8 +12,8 @@ if (isset($_SESSION["uid"])) {
     $zip = $_POST['zip'] || 1689;
     $phonenumber = $_POST['phoneNumber'];
     $cardnumber = $_POST['cardNumber'];
-    $expdate = $_POST['expdate'];
-    $cvv = $_POST['cvv'];
+    $expdate = $_POST['expdate'] || 12 / 22;
+    $cvv = $_POST['cvv'] || 1234;
     $user_id = $_SESSION["uid"];
     $cardnumberstr = (string)$cardnumber;
     $total_count = $_POST['total_count'];

@@ -136,7 +136,7 @@ include "header.php";
 								<a class="review-link" href="#review-form">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price">$' . $row['product_price'] . '<del class="product-old-price">$990.00</del></h3>
+								<h3 class="product-price">' . $row['product_price'] . 'MMK' . '<del class="product-old-price">9000MMK</del></h3>
 								<span class="product-available">In Stock</span>
 							</div>
                                     This product is authenticated by MEGAshop!!
@@ -223,7 +223,7 @@ include "header.php";
 								<div id="tab1" class="tab-pane fade in active">
 									<div class="row">
 										<div class="col-md-12">
-											<p> Nanda Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+											<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 										</div>
 									</div>
 								</div>
@@ -332,7 +332,7 @@ include "header.php";
 												<ul class="reviews">
 													<li>
 														<div class="review-heading">
-															<h5 class="name">John</h5>
+															<h5 class="name">Aung Kaung Set</h5>
 															<p class="date">27 DEC 2018, 8:0 PM</p>
 															<div class="review-rating">
 																<i class="fa fa-star"></i>
@@ -343,12 +343,12 @@ include "header.php";
 															</div>
 														</div>
 														<div class="review-body">
-															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+															<p>Good,I Love It</p>
 														</div>
 													</li>
 													<li>
 														<div class="review-heading">
-															<h5 class="name">John</h5>
+															<h5 class="name">Thu Zar</h5>
 															<p class="date">27 DEC 2018, 8:0 PM</p>
 															<div class="review-rating">
 																<i class="fa fa-star"></i>
@@ -359,12 +359,12 @@ include "header.php";
 															</div>
 														</div>
 														<div class="review-body">
-															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+															<p>It it OK for me</p>
 														</div>
 													</li>
 													<li>
 														<div class="review-heading">
-															<h5 class="name">John</h5>
+															<h5 class="name">Win Win</h5>
 															<p class="date">27 DEC 2018, 8:0 PM</p>
 															<div class="review-rating">
 																<i class="fa fa-star"></i>
@@ -375,7 +375,7 @@ include "header.php";
 															</div>
 														</div>
 														<div class="review-body">
-															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+															<p>The iPhone  is a fantastic upgrade that impresses on every level. The design is sleek and elegant, perfectly blending form and function. The display is incredibly vibrant, offering sharp and clear visuals that are great for both media and everyday use.</p>
 														</div>
 													</li>
 												</ul>
@@ -389,29 +389,6 @@ include "header.php";
 											</div>
 										</div>
 										<!-- /Reviews -->
-
-										<!-- Review Form -->
-										<div class="col-md-3 mainn">
-											<div id="review-form">
-												<form class="review-form">
-													<input class="input" type="text" placeholder="Your Name">
-													<input class="input" type="email" placeholder="Your Email">
-													<textarea class="input" placeholder="Your Review"></textarea>
-													<div class="input-rating">
-														<span>Your Rating: </span>
-														<div class="stars">
-															<input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
-															<input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
-															<input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
-															<input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
-															<input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
-														</div>
-													</div>
-													<button class="primary-btn">Submit</button>
-												</form>
-											</div>
-										</div>
-										<!-- /Review Form -->
 									</div>
 								</div>
 								<!-- /tab3  -->
@@ -478,7 +455,7 @@ include "header.php";
 									<div class='product-body'>
 										<p class='product-category'>$cat_name</p>
 										<h3 class='product-name header-cart-item-name'><a href='product.php?p=$pro_id'>$pro_title</a></h3>
-										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>$990.00</del></h4>
+										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>9000MMK</del></h4>
 										<div class='product-rating'>
 											<i class='fa fa-star'></i>
 											<i class='fa fa-star'></i>
