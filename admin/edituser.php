@@ -57,7 +57,7 @@ include "topheader.php";
                     <div class="col-md-12 ">
                       <div class="form-group">
                         <label >Password</label>
-                        <input type="text" name="password" id="password" class="form-control" value="<?php echo $user_password; ?>">
+                        <input type="text" name="password" id="_password" class="form-control" value="<?php echo $user_password; ?>">
                       </div>
                     </div>
                   

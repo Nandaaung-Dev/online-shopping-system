@@ -1,107 +1,54 @@
 <?php
 session_start();
-
+include "db.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
+	<!-- ... existing meta tags and links ... -->
 	<title>Online Shopping</title>
-
-	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-
-	<!-- Bootstrap -->
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-
-	<!-- Slick -->
 	<link type="text/css" rel="stylesheet" href="css/slick.css" />
 	<link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
-
-	<!-- nouislider -->
 	<link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
-
-	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-
-	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	<link type="text/css" rel="stylesheet" href="css/accountbtn.css" />
 
-
-
-
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
 	<style>
 		#navigation {
-			background: #FF4E50;
-			/* fallback for old browsers */
-			background: -webkit-linear-gradient(to right, #F9D423, #FF4E50);
-			/* Chrome 10-25, Safari 5.1-6 */
 			background: linear-gradient(to right, #F9D423, #FF4E50);
-			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
 		}
 
 		#header {
-
-			background: #780206;
-			/* fallback for old browsers */
-			background: -webkit-linear-gradient(to right, #061161, #780206);
-			/* Chrome 10-25, Safari 5.1-6 */
 			background: linear-gradient(to right, #F9D423, #F9D423);
-			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		}
 
-
+		.order_qtyst {
+			background-color: #D10024;
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			color: white;
+			border-radius: 50px;
+			position: absolute;
+			top: 10px;
 		}
 
 		#top-header {
-
-
-			background: #870000;
-			/* fallback for old browsers */
-			background: -webkit-linear-gradient(to right, #190A05, #870000);
-			/* Chrome 10-25, Safari 5.1-6 */
 			background: linear-gradient(to right, #FF8225, #FF8225);
-			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
 		}
 
 		#footer {
-			background: #7474BF;
-			/* fallback for old browsers */
-			background: -webkit-linear-gradient(to right, #348AC7, #7474BF);
-			/* Chrome 10-25, Safari 5.1-6 */
 			background: linear-gradient(to right, #348AC7, #7474BF);
-			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
 			color: #1E1F29;
 		}
 
 		#bottom-footer {
-			background: #7474BF;
-			/* fallback for old browsers */
-			background: -webkit-linear-gradient(to right, #348AC7, #7474BF);
-			/* Chrome 10-25, Safari 5.1-6 */
 			background: linear-gradient(to right, #348AC7, #7474BF);
-			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
 		}
 
 		.footer-links li a {
@@ -109,11 +56,9 @@ session_start();
 		}
 
 		.mainn-raised {
-
 			margin: -7px 0px 0px;
 			border-radius: 6px;
 			box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-
 		}
 
 		.glyphicon {
@@ -126,14 +71,37 @@ session_start();
 		}
 
 		.glyphicon-chevron-left:before {
-			content: "\f053"
+			content: "\f053";
 		}
 
 		.glyphicon-chevron-right:before {
-			content: "\f054"
+			content: "\f054";
+		}
+
+		/* Modal styles */
+		.modal-content {
+			background-color: #fefefe;
+			margin: 15% auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+		}
+
+		.modal-header {
+			display: flex;
+			/* justify-content: space-between; */
+			align-items: center;
+		}
+
+		.modal-title {
+			margin: 0;
+		}
+
+		.modal-body {
+			max-height: 60vh;
+			overflow-y: auto;
 		}
 	</style>
-
 </head>
 
 <body>
@@ -149,10 +117,9 @@ session_start();
 				</ul>
 				<ul class="header-links pull-right">
 					<li><a href="#"><i class="fa fa-inr"></i> MMK</a></li>
-					<li><?php
-						include "db.php";
+					<li>
+						<?php
 						if (isset($_SESSION['uid'])) {
-
 							$result = mysqli_query($con, "SELECT otp FROM user_otp WHERE user_id = '$_SESSION[uid]'");
 							$row = mysqli_fetch_assoc($result);
 							$stored_otp = $row['otp'];
@@ -168,7 +135,6 @@ session_start();
                                   <div class="dropdownn-content">
                                     <a href="" data-toggle="modal" data-target="#profile"><i class="fa fa-user-circle" aria-hidden="true" ></i>My Profile</a>
                                     <a href="logout.php"  ><i class="fa fa-sign-in" aria-hidden="true"></i>Log out</a>
-                                    
                                   </div>
                                 </div>';
 						} else {
@@ -178,26 +144,19 @@ session_start();
                                   <div class="dropdownn-content">
                                     <a href="" data-toggle="modal" data-target="#Modal_login"><i class="fa fa-sign-in" aria-hidden="true" ></i>Login</a>
                                     <a href="" data-toggle="modal" data-target="#Modal_register"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a>
-                                    
                                   </div>
                                 </div>';
 						}
 						?>
-
 					</li>
 				</ul>
-
 			</div>
 		</div>
 		<!-- /TOP HEADER -->
 
-
-
 		<!-- MAIN HEADER -->
 		<div id="header">
-			<!-- container -->
 			<div class="container">
-				<!-- row -->
 				<div class="row">
 					<!-- LOGO -->
 					<div class="col-md-3">
@@ -206,7 +165,6 @@ session_start();
 								<font style="font-style:normal; font-size: 33px;color: #000000;font-family: serif">
 									MegaShop
 								</font>
-
 							</a>
 						</div>
 					</div>
@@ -231,8 +189,16 @@ session_start();
 					<!-- ACCOUNT -->
 					<div class="col-md-3 clearfix">
 						<div class="header-ctn">
-
-
+							<div id="orderss">
+								<span>
+									<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+										<path fill="white" d="m21.706 5.292l-2.999-2.999A1 1 0 0 0 18 2H6a1 1 0 0 0-.707.293L2.294 5.292A1 1 0 0 0 2 6v13c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6a1 1 0 0 0-.294-.708M6.414 4h11.172l1 1H5.414zM4 19V7h16l.002 12z" />
+										<path fill="white" d="M14 9h-4v3H7l5 5l5-5h-3z" />
+									</svg>
+								</span>
+								<span id="order_qty" class="order_qtyst">0</span>
+								<span style="color:white; cursor: pointer;">Your Orders</span>
+							</div>
 							<!-- Cart -->
 							<div class="dropdown">
 								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
@@ -242,16 +208,11 @@ session_start();
 								</a>
 								<div class="cart-dropdown">
 									<div class="cart-list" id="cart_product">
-
-
 									</div>
-
 									<div class="cart-btns">
 										<a href="cart.php" style="width:100%;"><i class="fa fa-edit"></i> edit cart</a>
-
 									</div>
 								</div>
-
 							</div>
 							<!-- /Cart -->
 
@@ -274,58 +235,106 @@ session_start();
 		<!-- /MAIN HEADER -->
 	</header>
 	<!-- /HEADER -->
+
 	<nav id='navigation'>
-		<!-- container -->
 		<div class="container" id="get_category_home">
-
 		</div>
-		<!-- responsive-nav -->
-
-		<!-- /container -->
 	</nav>
-
 
 	<!-- NAVIGATION -->
 
+	<!-- Existing modals for login and registration -->
 	<div class="modal fade" id="Modal_login" role="dialog">
 		<div class="modal-dialog">
-
-			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-
 				</div>
 				<div class="modal-body">
-					<?php
-					include "login_form.php";
-
-					?>
-
+					<?php include "login_form.php"; ?>
 				</div>
-
 			</div>
-
 		</div>
 	</div>
+
 	<div class="modal fade" id="Modal_register" role="dialog">
-		<div class="modal-dialog" style="">
-
-			<!-- Modal content-->
+		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-
 				</div>
 				<div class="modal-body">
-					<?php
-					include "register_form.php";
-
-					?>
-
+					<?php include "register_form.php"; ?>
 				</div>
-
 			</div>
-
 		</div>
 	</div>
+
+	<!-- Orders Modal -->
+	<div id="ordersModal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document" style="width:1000px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Your Orders</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="    margin-left: 87%;
+">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div id="ordersContent">
+						<!-- Orders will be loaded here via JavaScript -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- JavaScript for fetching and displaying orders -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			fetch('fetch_orders.php')
+				.then(response => response.json())
+				.then(data => {
+					document.getElementById('order_qty').innerHTML = data.orders.length; // Update order quantity
+				})
+		})
+		document.querySelector('#orderss').addEventListener('click', function() {
+			$('#ordersModal').modal('show');
+
+			// Fetch and display orders
+			fetch('fetch_orders.php')
+				.then(response => response.json())
+				.then(data => {
+					let content = '<table class="table table-condensed">' +
+						'<thead>' +
+						'<tr>' +
+						'<th>Order ID</th>' +
+						'<th>Product Title</th>' +
+						'<th>Quantity</th>' +
+						'<th>Transaction ID</th>' +
+						'<th>Status</th>' +
+						'</tr>' +
+						'</thead>' +
+						'<tbody>';
+
+					data.orders.forEach(order => {
+						content += '<tr>' +
+							'<td>' + order.order_id + '</td>' +
+							'<td>' + order.product_title + '</td>' + // Use product title instead of ID
+							'<td>' + order.qty + '</td>' +
+							'<td>' + order.trx_id + '</td>' +
+							'<td>' + order.p_status + '</td>' +
+							'</tr>';
+					});
+
+					content += '</tbody></table>';
+					document.getElementById('order_qty').innerHTML = data.orders.length
+					document.getElementById('ordersContent').innerHTML = content;
+				})
+				.catch(error => console.error('Error fetching orders:', error));
+		});
+	</script>
+</body>
+
+</html>

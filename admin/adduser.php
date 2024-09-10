@@ -58,7 +58,7 @@ mysqli_close($con);
                       <div class="col-md-6">
                         <div class="form-group bmd-form-group">
                           <label class="bmd-label-floating">Password</label>
-                          <input type="password" id="password" name="password" class="form-control" required>
+                          <input type="password" id="admin_password" name="password" class="form-control" required>
                         </div>
                       </div>
                     </div>
