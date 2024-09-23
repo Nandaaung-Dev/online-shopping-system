@@ -192,9 +192,6 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `user_id`, `product_id`, `qty`, `trx_id`, `p_status`) VALUES
-(1, 12, 7, 1, '07M47684BS5725041', 'Completed'),
-(2, 14, 2, 1, '07M47684BS5725041', 'Completed');
 
 -- --------------------------------------------------------
 
@@ -219,14 +216,7 @@ CREATE TABLE `orders_info` (
   `cvv` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `orders_info`
---
 
-INSERT INTO `orders_info` (`order_id`, `user_id`, `f_name`, `email`, `address`, `city`, `state`, `zip`, `phonenumber`, `cardnumber`, `expdate`, `prod_count`, `total_amt`, `cvv`) VALUES
-(1, 12, 'Puneeth', 'kaungsatt951@gmail.com', 'Bangalore, Kumbalagodu, Karnataka', 'Bangalore', 'Karnataka', 560074, 'pokjhgfcxc', '4321 2345 6788 7654', '12/90', 3, 77000, 1234);
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `order_products`
@@ -239,15 +229,6 @@ CREATE TABLE `order_products` (
   `qty` int(15) DEFAULT NULL,
   `amt` int(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `order_products`
---
-
-INSERT INTO `order_products` (`order_pro_id`, `order_id`, `product_id`, `qty`, `amt`) VALUES
-(73, 1, 1, 1, 5000),
-(74, 1, 4, 2, 64000),
-(75, 1, 8, 1, 40000);
 
 -- --------------------------------------------------------
 
@@ -466,13 +447,13 @@ ALTER TABLE `logs`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_id`);
+  ADD  KEY (`order_id`);
 
 --
 -- Indexes for table `orders_info`
 --
 ALTER TABLE `orders_info`
-  ADD PRIMARY KEY (`order_id`),
+  ADD KEY (`order_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -487,13 +468,13 @@ ALTER TABLE `order_products`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`);
+  ADD KEY (`product_id`);
 
 --
 -- Indexes for table `user_info`
 --
 ALTER TABLE `user_info`
-  ADD PRIMARY KEY (`user_id`);
+  ADD  KEY (`user_id`);
 
 --
 -- Indexes for table `user_info_backup`
@@ -544,14 +525,14 @@ ALTER TABLE `logs`
 --
 -- AUTO_INCREMENT for table `orders`
 --
-ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+-- ALTER TABLE `orders`
+--   MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `orders_info`
 --
-ALTER TABLE `orders_info`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+-- ALTER TABLE `orders_info`
+--   MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `order_products`
