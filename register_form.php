@@ -3,7 +3,7 @@
     </div>
     <style>
         .input-borders {
-            border-radius: 30px;
+            border-radius: 10px;
         }
     </style>
     <!-- row -->
@@ -51,7 +51,7 @@
                     <input class="primary-btn btn-block" value="Sign Up" type="submit" name="signup_button">
                 </div>
                 <div class="text-pad">
-                    <a href="" data-toggle="modal" data-target="#Modal_login">Already have an Account ? then login</a>
+                    <!-- <a href="" data-toggle="modal" data-target="#Modal_login">Already have an Account ? then login</a> -->
 
                 </div>
 

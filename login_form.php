@@ -38,22 +38,22 @@ if (isset($_POST["login_user_with_product"])) {
 					<input class="input input-borders" type="email" name="email" placeholder="Email" id="email" required>
 				</div>
 
-				<div class="form-group">
+				<div class="form-group p-b-10">
 					<label for="email">Password</label>
 					<input class="input input-borders" type="password" name="password" placeholder="password" id="password" required>
 				</div>
-
+				<!-- 
 				<div class="text-pad">
 					<a href="#">
 						forget password ?
 					</a>
 
-				</div>
+				</div> -->
 
 				<input class="primary-btn btn-block" type="submit" Value="Login">
 
-				<div class="panel-footer">
-					<div class="alert alert-danger">
+				<div class="panel-footer hidden">
+					<div class="alert alert-danger hidden">
 						<h4 id="e_msg"></h4>
 					</div>
 				</div>

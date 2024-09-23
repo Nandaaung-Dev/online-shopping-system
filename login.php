@@ -117,6 +117,9 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 			echo "<script> location.href='admin/addproduct.php'; </script>";
 			exit();
 		} else {
+			echo "<script>  location.reload();
+			alert('Invalid Password!')
+			 </script>";
 			echo "<span style='color:red;'>Invalid credentials or please register before logging in!</span>";
 			exit();
 		}
